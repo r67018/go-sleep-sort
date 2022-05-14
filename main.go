@@ -9,13 +9,13 @@ import (
 )
 
 func main() {
-	var nums []int
+	nums := make([]int, len(os.Args)-1)
 	for i := 1; i < len(os.Args); i++ {
 		n, err := strconv.Atoi(os.Args[i])
 		if err != nil {
 			panic("Only numbers can be sorted.")
 		}
-		nums = append(nums, n)
+		nums[i-1] = n
 	}
 
 	sleep_sort(nums)
